@@ -6,12 +6,16 @@ import * as serviceWorker from './serviceWorker';
 import { createStore, applyMiddleware, compose, combineReducers } from "redux";
 import thunk from "redux-thunk";
 import { Provider } from 'react-redux';
-import users from './reducers/users.js'
+import users from './reducers/users.js';
+import currentUser from './reducers/currentUser.js';
+import loginForm from './reducers/loginForm.js'
 
 const composeEnhancer = window.__REDUX_DEVTOOLS_EXTENSION_COMPOSE__ || compose;
 
 const reducer = combineReducers({
-  users
+  users,
+  currentUser,
+  loginForm
 })
 const store = createStore(reducer, composeEnhancer(applyMiddleware(thunk)))
 
