@@ -1,13 +1,15 @@
 import React from 'react';
 import './App.css';
 
-import WelcomeContainer from './components/WelcomeContainer.js';
-import HomeContainer from './components/HomeContainer.js';
-import Signup from './components/Signup.js';
-
 import { connect } from 'react-redux';
 import { getCurrentUser } from './actions/currentUser.js'
-import { Route } from 'react-router-dom';
+
+//this is where we import components
+import Login from './components/Login.js';
+import Signup from './components/Signup.js';
+import Home from './components/Home.js';
+
+import { Route, Switch, withRouter } from 'react-router-dom';
 
 class App extends React.Component {
   componentDidMount() {
@@ -15,23 +17,26 @@ class App extends React.Component {
   }
 
   render() {
+    const { loggedIn } = this.props
     return (
-      <>
-       {this.props.currentUser ? <HomeContainer /> : <WelcomeContainer />}
-       <Route exact path="/signup" component={Signup}/>
-
-
-      </>
-
+      <div className="app">
+      <Switch>
+        <Route exact path="/" render={(props) => loggedIn ? <Home {...props}/> : <Login {...props}/>}/>
+        <Route exact path="/signup" render={({history}) => <Signup history={ history }/>}/>
+        <Route exact path="/login" component={Login}/>
+      </Switch>
+      </div>
     )
   }
 
 }
 
-const mapStateToProps = ({ currentUser }) => {
-  return {
-    currentUser
-  }
+const mapStateToProps = state => {
+  return ({
+    loggedIn: !!state.currentUser
+  })
 }
 
-export default connect(mapStateToProps, { getCurrentUser })(App);
+export default withRouter(connect(mapStateToProps, { getCurrentUser })(App));
+
+
