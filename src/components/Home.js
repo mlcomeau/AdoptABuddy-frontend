@@ -3,18 +3,20 @@ import Logout from './Logout.js';
 import AppBar from '@material-ui/core/AppBar';
 import Typography from '@material-ui/core/Typography';
 import Toolbar from '@material-ui/core/Toolbar';
+import Link from '@material-ui/core/Link';
 
 const Home = () => {
 
     return (
         <div>
-            <AppBar position="fixed">
+            <AppBar position="relative">
                 <Toolbar>
                     <Typography variant="h6">AdoptABuddy</Typography>
-                
                 </Toolbar>
             </AppBar>
-            <p>This is where the user goes when they are logged in </p>
+
+            <Link href='/search' variant="button">Start New Search</Link>
+ 
             <Logout />
         </div>
     )

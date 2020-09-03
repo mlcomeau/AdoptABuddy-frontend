@@ -52,7 +52,6 @@ export const signup = (creds, history) => {
                 alert(response.error)
             }
             else {
-                console.log(response)
                 dispatch(setCurrentUser(response))
                 dispatch(resetSignupForm())
                 history.push('/')

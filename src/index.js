@@ -12,13 +12,17 @@ import { BrowserRouter as Router } from 'react-router-dom';
 import currentUser from './reducers/currentUser.js';
 import loginForm from './reducers/loginForm.js';
 import signupForm from './reducers/signupForm.js';
+import searchForm from './reducers/searchForm.js';
+import searchResults from './reducers/searchResults.js';
 
 const composeEnhancer = window.__REDUX_DEVTOOLS_EXTENSION_COMPOSE__ || compose;
 
 const reducer = combineReducers({
   currentUser,
   loginForm,
-  signupForm
+  signupForm,
+  searchForm,
+  searchResults
 })
 const store = createStore(reducer, composeEnhancer(applyMiddleware(thunk)))
 
