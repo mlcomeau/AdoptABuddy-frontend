@@ -4,7 +4,7 @@ import './App.css';
 import { connect } from 'react-redux';
 import { getCurrentUser } from './actions/currentUser.js'
 
-//this is where we import components
+//import components
 import Login from './components/Login.js';
 import Signup from './components/Signup.js';
 import Home from './components/Home.js';
@@ -13,6 +13,7 @@ import Search from './components/Search.js';
 import { Route, Switch, withRouter } from 'react-router-dom';
 
 class App extends React.Component {
+  //dispatches action to change state.currentUser upon mount 
   componentDidMount() {
     this.props.getCurrentUser()
   }
@@ -33,6 +34,7 @@ class App extends React.Component {
 
 }
 
+//uses state.currentUser to determine if somebody is logged in 
 const mapStateToProps = state => {
   return ({
     loggedIn: !!state.currentUser

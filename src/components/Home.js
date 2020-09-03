@@ -12,12 +12,10 @@ const Home = () => {
             <AppBar position="relative">
                 <Toolbar>
                     <Typography variant="h6">AdoptABuddy</Typography>
+                    <Link href='/search' variant="button">Start New Search</Link>
+                    <Logout />
                 </Toolbar>
-            </AppBar>
-
-            <Link href='/search' variant="button">Start New Search</Link>
- 
-            <Logout />
+            </AppBar>     
         </div>
     )
 

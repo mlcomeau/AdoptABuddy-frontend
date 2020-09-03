@@ -1,9 +1,9 @@
 import React from 'react';
 import { connect } from 'react-redux';
 import { updateSearchForm, createSearch } from '../actions/searchForm.js';
-//import { fetchSearchResults } from '../actions/searchResults.js';
+import { fetchSearchResults } from '../actions/searchResults.js';
 
-const Search = ({ searchForm, updateSearchForm, userId, history, createSearch }) => {
+const Search = ({ searchForm, updateSearchForm, userId, history, createSearch, location, searchRadius, fetchSearchResults }) => {
     const handleInputChange = event => {
         const { name, value } = event.target
         const updatedForm = {
@@ -13,12 +13,12 @@ const Search = ({ searchForm, updateSearchForm, userId, history, createSearch })
         updateSearchForm(updatedForm)
     }
     const handleSubmit = event => {
-        console.log("WEEEEEEEE")
 
         event.preventDefault()
 
         createSearch({...searchForm, userId}, history)
-//        fetchSearchResults(searchForm)
+
+        fetchSearchResults({...searchForm, location, searchRadius}, history)
         
     }
 
@@ -37,10 +37,14 @@ const Search = ({ searchForm, updateSearchForm, userId, history, createSearch })
 
 const mapStateToProps = state => {
     const userId = state.currentUser ? state.currentUser.id : ""
+    const location = state.currentUser ? state.currentUser.zipcode : ""
+    const searchRadius = state.currentUser ? state.currentUser.search_radius : ""
     return {
         searchForm: state.searchForm,
-        userId
+        userId,
+        location,
+        searchRadius
     }
 }
 
-export default connect (mapStateToProps, { updateSearchForm, createSearch })(Search)
+export default connect (mapStateToProps, { updateSearchForm, createSearch, fetchSearchResults })(Search)

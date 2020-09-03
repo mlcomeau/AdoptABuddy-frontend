@@ -15,3 +15,5 @@ export default (state = initState, action) => {
             return state;
     }
 }
+
+//state.searchForm - the info inputed in the search form 

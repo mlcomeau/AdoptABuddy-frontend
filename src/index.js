@@ -8,12 +8,13 @@ import thunk from "redux-thunk";
 import { Provider } from 'react-redux';
 import { BrowserRouter as Router } from 'react-router-dom';
 
-//this is where we load our reducers 
+//import reducers 
 import currentUser from './reducers/currentUser.js';
 import loginForm from './reducers/loginForm.js';
 import signupForm from './reducers/signupForm.js';
 import searchForm from './reducers/searchForm.js';
 import searchResults from './reducers/searchResults.js';
+import searches from './reducers/searches.js';
 
 const composeEnhancer = window.__REDUX_DEVTOOLS_EXTENSION_COMPOSE__ || compose;
 
@@ -22,12 +23,13 @@ const reducer = combineReducers({
   loginForm,
   signupForm,
   searchForm,
-  searchResults
+  searchResults,
+  searches
 })
 const store = createStore(reducer, composeEnhancer(applyMiddleware(thunk)))
 
 ReactDOM.render(
-  <Provider store= { store }>
+  <Provider store={ store }>
     <Router>  
       <App />
     </Router>

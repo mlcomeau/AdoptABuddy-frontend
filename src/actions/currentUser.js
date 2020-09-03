@@ -1,5 +1,6 @@
 import { resetLoginForm } from './loginForm.js'
-import { resetSignupForm } from './signupForm'
+import { resetSignupForm } from './signupForm.js'
+import { getUserSearches } from './searches.js'
 
 export const setCurrentUser = user => {
     return {
@@ -8,28 +9,9 @@ export const setCurrentUser = user => {
     }
 }
 
-export const login = creds => {
-    return dispatch => {
-        return fetch("http://localhost:3001/login", {
-            credentials: "include",
-            method: "POST",
-            headers: {
-                "Content-type": "application/JSON"
-            },
-            body: JSON.stringify(creds)
-        })
-        .then(r => r.json())
-        .then(user => {
-            if (user.error) {
-                alert(user.error)
-            }
-            else {
-                dispatch(setCurrentUser(user))
-                dispatch(resetLoginForm())
-            }          
-
-        })
-        .catch(console.log)
+export const clearCurrentUser = () => {
+    return {
+        type: "CLEAR_CURRENT_USER"
     }
 }
 
@@ -62,6 +44,32 @@ export const signup = (creds, history) => {
     }
 }
 
+export const login = creds => {
+    return dispatch => {
+        return fetch("http://localhost:3001/login", {
+            credentials: "include",
+            method: "POST",
+            headers: {
+                "Content-type": "application/JSON"
+            },
+            body: JSON.stringify(creds)
+        })
+        .then(r => r.json())
+        .then(user => {
+            if (user.error) {
+                alert(user.error)
+            }
+            else {
+                dispatch(setCurrentUser(user))
+                dispatch(resetLoginForm())
+            }          
+
+        })
+        .catch(console.log)
+    }
+}
+
+
 export const getCurrentUser = () => {
     return dispatch => {
         return fetch("http://localhost:3001/get_current_user", {
@@ -78,6 +86,8 @@ export const getCurrentUser = () => {
             }
             else {
                 dispatch(setCurrentUser(user))
+                dispatch(getUserSearches())
+
             }          
 
         })
@@ -95,8 +105,3 @@ export const logout = () => {
     }
 }
 
-export const clearCurrentUser = () => {
-    return {
-        type: "CLEAR_CURRENT_USER"
-    }
-}
