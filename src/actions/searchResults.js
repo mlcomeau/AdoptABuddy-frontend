@@ -1,7 +1,7 @@
-export const getSearchResults = results => {
+export const setSearchResults = searchResults => {
     return {
-        type: "GET_SEARCH_RESULTS",
-        results 
+        type: "SET_SEARCH_RESULTS",
+        searchResults 
     }
 }
 export const fetchSearchResults = (searchInfo) => {
@@ -21,9 +21,12 @@ export const fetchSearchResults = (searchInfo) => {
             }
             else {
                 console.log(response)
-                dispatch(getSearchResults(response))
+                //^up to here works 
+                const searchResults = response.animals 
+                dispatch(setSearchResults(searchResults))
             }
         })
+        .catch(console.log)
     }
 }
 
