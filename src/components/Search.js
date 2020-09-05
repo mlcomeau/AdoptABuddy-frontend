@@ -3,8 +3,6 @@ import { connect } from 'react-redux';
 import { updateSearchForm, createSearch } from '../actions/searchForm.js';
 import { fetchSearchResults } from '../actions/searchResults.js';
 
-
-
 const Search = ({ searchForm, updateSearchForm, userId, history, createSearch, location, searchRadius, fetchSearchResults }) => {
 
     const handleInputChange = event => {
@@ -15,25 +13,55 @@ const Search = ({ searchForm, updateSearchForm, userId, history, createSearch, l
         }
         updateSearchForm(updatedForm)
     }
+
     const handleSubmit = event => {
 
         event.preventDefault()
 
         createSearch({...searchForm, userId}, history)
 
-        fetchSearchResults({...searchForm, location, searchRadius}, history)
-
-        
+        fetchSearchResults({...searchForm, location, searchRadius}, history)      
     }
 
-    return (
 
+    return (
       <form onSubmit={handleSubmit}>
-          <input type="text" value={searchForm.animal} placeholder="Animal Type" onChange={handleInputChange} name="animal"></input><br/>
-          <input type="text" value={searchForm.gender} placeholder="Gender" onChange={handleInputChange} name="gender"></input><br/>
-          <input type="text" value={searchForm.age} placeholder="Age" onChange={handleInputChange} name="age"></input><br/>
-          <input type="text" value={searchForm.size} placeholder="Size" onChange={handleInputChange} name="size"></input><br/>
-          <input type="submit" value="Start Search"></input>
+        <label for="animal">Please Select an Animal: </label>
+        <select onChange={handleInputChange} value={searchForm.animal} name="animal" required>
+            <option value="" disabled> - </option>
+            <option value="dog">Dog</option>
+            <option value="cat">Cat</option>
+        </select>
+        <br/>
+        <label for="gender">Please Select a Gender: </label>
+        <select onChange={handleInputChange} value={searchForm.gender} name="gender" required>
+            <option value="" disabled> - </option>
+            <option value="male">Male</option>
+            <option value="female">Female</option>
+            <option value="any">Any</option>
+        </select>        
+        <br/>
+        <label for="age">Please Select an Age: </label>
+        <select onChange={handleInputChange} value={searchForm.age} name="age" required>
+            <option value="" disabled> - </option>
+            <option value="baby">Baby</option>
+            <option value="young">Young</option>
+            <option value="adult">Adult</option>
+            <option value="senior">Senior</option>
+            <option value="any">Any</option>
+        </select>          
+        <br/>
+        <label for="size">Please Select a Size: </label>
+        <select onChange={handleInputChange} value={searchForm.size} name="size" required>
+            <option value="" disabled> - </option>
+            <option value="small">Small</option>
+            <option value="medium">Medium</option>
+            <option value="large">Large</option>
+            <option value="xlarge">X-Large</option>
+            <option value="any">Any</option>
+        </select>  
+        <br/>
+        <input type="submit" value="Start Search"></input>
       </form>
         
     )

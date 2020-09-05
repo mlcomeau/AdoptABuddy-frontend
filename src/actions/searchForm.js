@@ -1,4 +1,5 @@
 import { addSearch } from './searches';
+import { resetSearchResults } from './searchResults';
 
 export const updateSearchForm = (formData) => {
     return {
@@ -15,7 +16,9 @@ export const resetSearchForm = () => {
 }
 
 export const createSearch = (search, history) => {
+    
     return dispatch => {
+        dispatch(resetSearchResults())
         const sendableSearch = {
             search: {
                 animal: search.animal,

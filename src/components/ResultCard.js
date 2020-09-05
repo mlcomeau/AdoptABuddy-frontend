@@ -68,7 +68,7 @@ const ResultCard = ({result}) => {
               <MoreVertIcon />
             </IconButton>
           }
-          title={result.name}
+          title={result.name !== null ? result.name : "Unknown"}
         />
         <CardMedia>
         <>
@@ -77,7 +77,7 @@ const ResultCard = ({result}) => {
         </CardMedia>
         <CardContent>
           <Typography variant="body2" color="textSecondary" component="p">
-            {result.age} - {result.gender} -{result.small} - {result.breeds.primary}
+            {result.age} - {result.gender} -{result.small} - {result.breeds.primary !== null ? result.breeds.primary : "Unknown"}
           </Typography>
         </CardContent>
         <CardActions disableSpacing>
@@ -107,13 +107,6 @@ const ResultCard = ({result}) => {
               Special Needs? {result.attributes.special_needs === true ? "Yes" : "No"}
               <br/>
               Shots Current? {result.attributes.spayed_neutered === true ? "Yes" : "No"}
-            </Typography>
-            <Typography paragraph>
-              Good with children? {result.environment.children}
-              <br/>
-              Good with dogs? {result.environment.dogs}
-              <br/> 
-              Good with cats? {result.environment.cats}
             </Typography>
             <CardActions>
                 <Link href={result.url} target="_blank" rel="noopener">Learn more about {result.name}</Link>

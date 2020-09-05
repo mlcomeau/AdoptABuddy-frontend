@@ -53,3 +53,5 @@ return (
           image={result.primary_photo_cropped !== null ? result.primary_photo_cropped.small : "https://upload.wikimedia.org/wikipedia/commons/f/fc/No_picture_available.png"}
           title={result.name}
         />
+
+        <input type="text" value={searchForm.animal} placeholder="Animal Type" onChange={handleInputChange} name="animal"></input>

@@ -23,7 +23,7 @@ const useStyles = makeStyles((theme) => ({
 
   const ResultsContainer = ({searchResults}) => {
       const classes = useStyles();
-      const resultCards = searchResults.length > 0 ? searchResults.map(r => <Grid item key={r.id} xs={5}><ResultCard result={r} key={r.id} /></Grid>) : null
+      const resultCards = searchResults.length > 0 ? searchResults.map(r => <Grid item xs={5}><ResultCard result={r}/></Grid>) : null
 
       return (
         <div className={classes.root}>

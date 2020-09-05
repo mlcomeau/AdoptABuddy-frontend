@@ -37,15 +37,12 @@ const SearchCard = ({search, fetchSearchResults, location, searchRadius, resetSe
         <Typography variant="body2" component="p">
           Animal: {search.animal}
           <br />
-          -
           <br />
           Gender: {search.gender}
           <br />
-          -
           <br />
           Age: {search.age}
           <br />
-          -
           <br />                    
           Size: {search.size}
         </Typography>

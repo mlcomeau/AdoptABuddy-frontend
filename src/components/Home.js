@@ -20,13 +20,13 @@ const Home = ({ resultsCount }) => {
     const classes = useStyles();
 
     return (
-        <div>
+        <>
             { resultsCount > 0 ? <ResultsContainer /> : null }
             <SearchesContainer /> 
             <Box className={classes.box} fontSize="h6.fontSize">
                 <Link href='/search'>Start New Search</Link>   
             </Box>         
-        </div>
+        </>
     )
 
 }

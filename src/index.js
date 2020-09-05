@@ -1,8 +1,5 @@
 import React from 'react';
 import ReactDOM from 'react-dom';
-import './index.css';
-import App from './App';
-import * as serviceWorker from './serviceWorker';
 import { createStore, applyMiddleware, compose, combineReducers } from "redux";
 import thunk from "redux-thunk";
 import { Provider } from 'react-redux';
@@ -11,29 +8,34 @@ import { persistStore, persistReducer } from 'redux-persist';
 import storage from 'redux-persist/lib/storage';
 import { PersistGate } from 'redux-persist/integration/react';
 
+import * as serviceWorker from './serviceWorker';
+import './index.css';
+import App from './App';
 //import reducers 
 import currentUser from './reducers/currentUser.js';
 import loginForm from './reducers/loginForm.js';
-import signupForm from './reducers/signupForm.js';
+import searches from './reducers/searches.js';
 import searchForm from './reducers/searchForm.js';
 import searchResults from './reducers/searchResults.js';
-import searches from './reducers/searches.js';
+import signupForm from './reducers/signupForm.js';
+
+
 
 const composeEnhancer = window.__REDUX_DEVTOOLS_EXTENSION_COMPOSE__ || compose;
 
 const persistConfig = {
   key: 'root',
   storage,
-  blacklist: ['loginForm', 'signupForm']
+  blacklist: ['loginForm', 'signupForm', 'searchForm']
 }
 
 const reducer = combineReducers({
   currentUser,
   loginForm: loginForm,
   signupForm: signupForm,
-  searchForm,
+  searchForm: searchForm,
   searchResults,
-  searches,
+  searches
 })
 
 const persistedReducer = persistReducer(persistConfig, reducer)
