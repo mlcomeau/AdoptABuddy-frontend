@@ -7,7 +7,7 @@ import '../App.css'
 import Avatar from '@material-ui/core/Avatar';
 import Button from '@material-ui/core/Button';
 import CssBaseline from '@material-ui/core/CssBaseline';
-import Link from '@material-ui/core/Link';
+import ArrowBackIcon from '@material-ui/icons/ArrowBack';
 import Grid from '@material-ui/core/Grid';
 import PetsIcon from '@material-ui/icons/Pets';
 import Typography from '@material-ui/core/Typography';
@@ -56,6 +56,10 @@ const Search = ({ searchForm, updateSearchForm, userId, history, createSearch, l
     }
 
     return (
+        <div>
+        <div className="top">
+            <Typography variant="h6"><a href="/"><ArrowBackIcon fontSize="small"/>Back to Home</a></Typography>
+        </div>
         <Container component="main" maxWidth="xs">
           <CssBaseline />
           <div className={classes.paper}>
@@ -68,7 +72,7 @@ const Search = ({ searchForm, updateSearchForm, userId, history, createSearch, l
             <form className={classes.form} onSubmit={handleSubmit}>
               <Grid container spacing={2}>
                 <Grid item xs={12}>
-                <label for="animal">Please Select an Animal: </label>
+                <Typography variant="subtitle1"><label for="animal">Please Select an Animal: </label></Typography>
                 <select className="select" onChange={handleInputChange} value={searchForm.animal} name="animal" required>
                   <option value="" disabled> - </option>
                   <option value="dog">Dog</option>
@@ -76,7 +80,7 @@ const Search = ({ searchForm, updateSearchForm, userId, history, createSearch, l
                 </select>
                 </Grid>
                 <Grid item xs={12}>
-                <label for="gender">Please Select a Gender: </label>
+                <Typography variant="subtitle1"><label for="gender">Please Select a Gender: </label></Typography>
                 <select className="select" onChange={handleInputChange} value={searchForm.gender} name="gender" required>
                   <option value="" disabled> - </option>
                   <option value="male">Male</option>
@@ -85,7 +89,7 @@ const Search = ({ searchForm, updateSearchForm, userId, history, createSearch, l
                 </select>                  
                 </Grid>
                 <Grid item xs={12}>
-                <label for="age">Please Select an Age: </label>
+                <Typography variant="subtitle1"><label for="age">Please Select an Age: </label></Typography>
                 <select className="select" onChange={handleInputChange} value={searchForm.age} name="age" required>
                   <option value="" disabled> - </option>
                   <option value="baby">Baby</option>
@@ -96,7 +100,7 @@ const Search = ({ searchForm, updateSearchForm, userId, history, createSearch, l
                 </select>    
                 </Grid>
                 <Grid item xs={12}>
-                <label for="size">Please Select a Size: </label>
+                <Typography variant="subtitle1"><label for="size">Please Select a Size: </label></Typography>
                 <select className="select" onChange={handleInputChange} value={searchForm.size} name="size" required>
                   <option value="" disabled> - </option>
                   <option value="small">Small</option>
@@ -117,15 +121,9 @@ const Search = ({ searchForm, updateSearchForm, userId, history, createSearch, l
                 Start Search
               </Button>
             </form>
-            <Grid container justify="flex-end">
-              <Grid item>
-                  <Link href="/" variant="body2">
-                      Go back home
-                  </Link>
-              </Grid>
-            </Grid>
           </div>
         </Container>
+        </div>
       );
 
 
