@@ -27,7 +27,7 @@ const useStyles = makeStyles((theme) => ({
 
       return (
         <div className={classes.root}>
-            <Box m={10}>
+            <Box m={10} mt={1}>
                 <Grid container spacing={2} justify="center" alignItems="center">
                     <Grid item xs={12}>
                         <Paper className={classes.paper}>      

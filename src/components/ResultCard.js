@@ -27,10 +27,6 @@ const useStyles = makeStyles((theme) => ({
     root: {
       maxWidth: 345,
     },
-    media: {
-      height: 0,
-      paddingTop: '56.25%', // 16:9
-    },
     expand: {
       transform: 'rotate(0deg)',
       marginLeft: 'auto',
@@ -42,7 +38,7 @@ const useStyles = makeStyles((theme) => ({
       transform: 'rotate(180deg)',
     },
     avatar: {
-      backgroundColor: blue[500],
+      backgroundColor: blue[900],
     },
   }));
 
@@ -62,11 +58,6 @@ const ResultCard = ({result}) => {
             <Avatar aria-label="pet" className={classes.avatar}>
               <PetsIcon />
             </Avatar>
-          }
-          action={
-            <IconButton aria-label="settings">
-              <MoreVertIcon />
-            </IconButton>
           }
           title={result.name !== null ? result.name : "Unknown"}
         />
