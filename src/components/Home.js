@@ -1,24 +1,40 @@
 import React from 'react';
-import Logout from './Logout.js';
-import AppBar from '@material-ui/core/AppBar';
-import Typography from '@material-ui/core/Typography';
-import Toolbar from '@material-ui/core/Toolbar';
+import { connect } from 'react-redux';
+import SearchesContainer from './SearchesContainer.js';
+import ResultsContainer from './ResultsContainer.js';
 import Link from '@material-ui/core/Link';
+import Box from '@material-ui/core/Box';
+import { makeStyles } from '@material-ui/core/styles';
 
-const Home = () => {
+const useStyles = makeStyles(() => ({
+    box: {
+        textAlign: 'center',
+    },
+    title: {
+        flexGrow: 1,
+    }
+  }));
+
+const Home = ({ resultsCount }) => {
+
+    const classes = useStyles();
 
     return (
         <div>
-            <AppBar position="relative">
-                <Toolbar>
-                    <Typography variant="h6">AdoptABuddy</Typography>
-                    <Link href='/search' variant="button">Start New Search</Link>
-                    <Logout />
-                </Toolbar>
-            </AppBar>     
+            { resultsCount > 0 ? <ResultsContainer /> : null }
+            <SearchesContainer /> 
+            <Box className={classes.box} fontSize="h6.fontSize">
+                <Link href='/search'>Start New Search</Link>   
+            </Box>         
         </div>
     )
 
 }
 
-export default Home 
+const mapStateToProps = state => {
+    return {
+        resultsCount: state.searchResults.length
+    }
+}
+
+export default connect (mapStateToProps)(Home)

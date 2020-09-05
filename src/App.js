@@ -9,6 +9,7 @@ import Login from './components/Login.js';
 import Signup from './components/Signup.js';
 import Home from './components/Home.js';
 import Search from './components/Search.js';
+import Navbar from './components/Navbar.js';
 
 import { Route, Switch, withRouter } from 'react-router-dom';
 
@@ -22,6 +23,7 @@ class App extends React.Component {
     const { loggedIn } = this.props
     return (
       <div className="app">
+      { loggedIn ? <Navbar /> : null }
       <Switch>
         <Route exact path="/" render={(props) => loggedIn ? <Home {...props}/> : <Login {...props}/>}/>
         <Route exact path="/signup" render={({history}) => <Signup history={ history }/>}/>

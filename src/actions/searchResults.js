@@ -4,7 +4,14 @@ export const setSearchResults = searchResults => {
         searchResults 
     }
 }
-export const fetchSearchResults = (searchInfo) => {
+
+export const resetSearchResults = () => {
+    return {
+        type: "RESET_SEARCH_RESULTS"
+    }
+}
+
+export const fetchSearchResults = (searchInfo, history) => {
     return dispatch => {
         return fetch("http://localhost:3001/search_results", {
             credentials: "include",
@@ -24,6 +31,7 @@ export const fetchSearchResults = (searchInfo) => {
                 //^up to here works 
                 const searchResults = response.animals 
                 dispatch(setSearchResults(searchResults))
+                history.push('/')
             }
         })
         .catch(console.log)

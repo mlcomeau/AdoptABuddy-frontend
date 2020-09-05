@@ -1,6 +1,8 @@
 import { resetLoginForm } from './loginForm.js'
 import { resetSignupForm } from './signupForm.js'
 import { getUserSearches } from './searches.js'
+import { resetSearchResults } from './searchResults.js'
+import { clearSearches } from './searches.js'
 
 export const setCurrentUser = user => {
     return {
@@ -87,7 +89,6 @@ export const getCurrentUser = () => {
             else {
                 dispatch(setCurrentUser(user))
                 dispatch(getUserSearches())
-
             }          
 
         })
@@ -97,6 +98,8 @@ export const getCurrentUser = () => {
 
 export const logout = () => {
     return (dispatch) => {
+        dispatch(clearSearches())
+        dispatch(resetSearchResults())
         dispatch(clearCurrentUser())
         return fetch("http://localhost:3001/logout", {
             credentials: "include",
