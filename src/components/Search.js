@@ -2,8 +2,40 @@ import React from 'react';
 import { connect } from 'react-redux';
 import { updateSearchForm, createSearch } from '../actions/searchForm.js';
 import { fetchSearchResults } from '../actions/searchResults.js';
+import '../App.css'
+
+import Avatar from '@material-ui/core/Avatar';
+import Button from '@material-ui/core/Button';
+import CssBaseline from '@material-ui/core/CssBaseline';
+import Link from '@material-ui/core/Link';
+import Grid from '@material-ui/core/Grid';
+import PetsIcon from '@material-ui/icons/Pets';
+import Typography from '@material-ui/core/Typography';
+import { makeStyles } from '@material-ui/core/styles';
+import Container from '@material-ui/core/Container';
+
+const useStyles = makeStyles((theme) => ({
+    paper: {
+      marginTop: theme.spacing(8),
+      display: 'flex',
+      flexDirection: 'column',
+      alignItems: 'center',
+    },
+    avatar: {
+      margin: theme.spacing(1),
+      backgroundColor: theme.palette.secondary.main,
+    },
+    form: {
+      width: '100%', // Fix IE 11 issue.
+      marginTop: theme.spacing(3),
+    },
+    submit: {
+      margin: theme.spacing(3, 0, 2),
+    },
+  }));
 
 const Search = ({ searchForm, updateSearchForm, userId, history, createSearch, location, searchRadius, fetchSearchResults }) => {
+    const classes = useStyles();
 
     const handleInputChange = event => {
         const { name, value } = event.target
@@ -23,48 +55,81 @@ const Search = ({ searchForm, updateSearchForm, userId, history, createSearch, l
         fetchSearchResults({...searchForm, location, searchRadius}, history)      
     }
 
-
     return (
-      <form onSubmit={handleSubmit}>
-        <label for="animal">Please Select an Animal: </label>
-        <select onChange={handleInputChange} value={searchForm.animal} name="animal" required>
-            <option value="" disabled> - </option>
-            <option value="dog">Dog</option>
-            <option value="cat">Cat</option>
-        </select>
-        <br/>
-        <label for="gender">Please Select a Gender: </label>
-        <select onChange={handleInputChange} value={searchForm.gender} name="gender" required>
-            <option value="" disabled> - </option>
-            <option value="male">Male</option>
-            <option value="female">Female</option>
-            <option value="any">Any</option>
-        </select>        
-        <br/>
-        <label for="age">Please Select an Age: </label>
-        <select onChange={handleInputChange} value={searchForm.age} name="age" required>
-            <option value="" disabled> - </option>
-            <option value="baby">Baby</option>
-            <option value="young">Young</option>
-            <option value="adult">Adult</option>
-            <option value="senior">Senior</option>
-            <option value="any">Any</option>
-        </select>          
-        <br/>
-        <label for="size">Please Select a Size: </label>
-        <select onChange={handleInputChange} value={searchForm.size} name="size" required>
-            <option value="" disabled> - </option>
-            <option value="small">Small</option>
-            <option value="medium">Medium</option>
-            <option value="large">Large</option>
-            <option value="xlarge">X-Large</option>
-            <option value="any">Any</option>
-        </select>  
-        <br/>
-        <input type="submit" value="Start Search"></input>
-      </form>
-        
-    )
+        <Container component="main" maxWidth="xs">
+          <CssBaseline />
+          <div className={classes.paper}>
+            <Avatar className={classes.avatar}>
+              <PetsIcon />
+            </Avatar>
+            <Typography component="h1" variant="h5">
+              Start Searching Now!
+            </Typography>
+            <form className={classes.form} onSubmit={handleSubmit}>
+              <Grid container spacing={2}>
+                <Grid item xs={12}>
+                <label for="animal">Please Select an Animal: </label>
+                <select className="select" onChange={handleInputChange} value={searchForm.animal} name="animal" required>
+                  <option value="" disabled> - </option>
+                  <option value="dog">Dog</option>
+                  <option value="cat">Cat</option>
+                </select>
+                </Grid>
+                <Grid item xs={12}>
+                <label for="gender">Please Select a Gender: </label>
+                <select className="select" onChange={handleInputChange} value={searchForm.gender} name="gender" required>
+                  <option value="" disabled> - </option>
+                  <option value="male">Male</option>
+                  <option value="female">Female</option>
+                  <option value="any">Any</option>
+                </select>                  
+                </Grid>
+                <Grid item xs={12}>
+                <label for="age">Please Select an Age: </label>
+                <select className="select" onChange={handleInputChange} value={searchForm.age} name="age" required>
+                  <option value="" disabled> - </option>
+                  <option value="baby">Baby</option>
+                  <option value="young">Young</option>
+                  <option value="adult">Adult</option>
+                  <option value="senior">Senior</option>
+                  <option value="any">Any</option>
+                </select>    
+                </Grid>
+                <Grid item xs={12}>
+                <label for="size">Please Select a Size: </label>
+                <select className="select" onChange={handleInputChange} value={searchForm.size} name="size" required>
+                  <option value="" disabled> - </option>
+                  <option value="small">Small</option>
+                  <option value="medium">Medium</option>
+                  <option value="large">Large</option>
+                  <option value="xlarge">X-Large</option>
+                  <option value="any">Any</option>
+                </select>   
+                </Grid>
+              </Grid>
+              <Button
+                type="submit"
+                fullWidth
+                variant="contained"
+                color="primary"
+                className={classes.submit}
+              >
+                Start Search
+              </Button>
+            </form>
+            <Grid container justify="flex-end">
+              <Grid item>
+                  <Link href="/" variant="body2">
+                      Go back home
+                  </Link>
+              </Grid>
+            </Grid>
+          </div>
+        </Container>
+      );
+
+
+
 }
 
 const mapStateToProps = state => {
