@@ -72,7 +72,7 @@ const Search = ({ searchForm, updateSearchForm, userId, history, createSearch, l
             <form className={classes.form} onSubmit={handleSubmit}>
               <Grid container spacing={2}>
                 <Grid item xs={12}>
-                <Typography variant="subtitle1"><label for="animal">Please Select an Animal: </label></Typography>
+                <Typography variant="subtitle1"><label htmlFor="animal">Please Select an Animal: </label></Typography>
                 <select className="select" onChange={handleInputChange} value={searchForm.animal} name="animal" required>
                   <option value="" disabled> - </option>
                   <option value="dog">Dog</option>
@@ -80,7 +80,7 @@ const Search = ({ searchForm, updateSearchForm, userId, history, createSearch, l
                 </select>
                 </Grid>
                 <Grid item xs={12}>
-                <Typography variant="subtitle1"><label for="gender">Please Select a Gender: </label></Typography>
+                <Typography variant="subtitle1"><label htmlFor="gender">Please Select a Gender: </label></Typography>
                 <select className="select" onChange={handleInputChange} value={searchForm.gender} name="gender" required>
                   <option value="" disabled> - </option>
                   <option value="male">Male</option>
@@ -89,7 +89,7 @@ const Search = ({ searchForm, updateSearchForm, userId, history, createSearch, l
                 </select>                  
                 </Grid>
                 <Grid item xs={12}>
-                <Typography variant="subtitle1"><label for="age">Please Select an Age: </label></Typography>
+                <Typography variant="subtitle1"><label htmlFor="age">Please Select an Age: </label></Typography>
                 <select className="select" onChange={handleInputChange} value={searchForm.age} name="age" required>
                   <option value="" disabled> - </option>
                   <option value="baby">Baby</option>
@@ -100,7 +100,7 @@ const Search = ({ searchForm, updateSearchForm, userId, history, createSearch, l
                 </select>    
                 </Grid>
                 <Grid item xs={12}>
-                <Typography variant="subtitle1"><label for="size">Please Select a Size: </label></Typography>
+                <Typography variant="subtitle1"><label htmlFor="size">Please Select a Size: </label></Typography>
                 <select className="select" onChange={handleInputChange} value={searchForm.size} name="size" required>
                   <option value="" disabled> - </option>
                   <option value="small">Small</option>

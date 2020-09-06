@@ -28,7 +28,6 @@ export const fetchSearchResults = (searchInfo, history) => {
             }
             else {
                 console.log(response)
-                //^up to here works 
                 const searchResults = response.animals 
                 dispatch(setSearchResults(searchResults))
                 history.push('/')

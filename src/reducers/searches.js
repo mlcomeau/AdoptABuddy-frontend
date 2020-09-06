@@ -8,6 +8,8 @@ export default (state = initState, action) => {
             return state.concat(action.search)
         case "CLEAR_SEARCHES":
             return initState
+        case "DELETE_SEARCH_SUCCESS":
+            return state.filter(search => search.id === action.searchId ? false : true ) 
         default:
             return state 
     }

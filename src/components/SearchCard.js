@@ -2,6 +2,7 @@ import React from 'react';
 import { connect } from 'react-redux';
 import { fetchSearchResults } from '../actions/searchResults.js';
 import { resetSearchResults } from '../actions/searchResults.js';
+import { deleteSearch } from '../actions/searches.js'
 
 import { makeStyles } from '@material-ui/core/styles';
 import Card from '@material-ui/core/Card';
@@ -21,14 +22,16 @@ const useStyles = makeStyles({
 
 });
 
-
-
-const SearchCard = ({search, fetchSearchResults, location, searchRadius, resetSearchResults, history}) => {
+const SearchCard = ({search, fetchSearchResults, location, searchRadius, resetSearchResults, history, deleteSearch}) => {
     const classes = useStyles();
 
     const goSearch = () => {
       resetSearchResults()
       fetchSearchResults({...search, location, searchRadius}, history)
+    }
+
+    const deleteThisSearch = (searchId) => {
+      deleteSearch(searchId)
     }
 
     return (
@@ -49,6 +52,7 @@ const SearchCard = ({search, fetchSearchResults, location, searchRadius, resetSe
       </CardContent>
       <CardActions>
         <Button variant="contained" color="primary" size="small" onClick={goSearch}>Keep Searching...</Button>
+        <Button variant="contained" color="secondary" size="small" onClick={()=>deleteThisSearch(search.id)}>Delete This Search</Button>
       </CardActions>
     </Card>
     );
@@ -64,5 +68,5 @@ const mapStateToProps = state => {
   }
 }
 
-export default withRouter(connect(mapStateToProps, { fetchSearchResults, resetSearchResults })(SearchCard)) 
+export default withRouter(connect(mapStateToProps, { fetchSearchResults, resetSearchResults, deleteSearch })(SearchCard)) 
 

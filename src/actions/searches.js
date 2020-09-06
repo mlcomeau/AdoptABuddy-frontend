@@ -18,6 +18,29 @@ export const addSearch = search => {
     }
 }
 
+export const deleteSearchSuccess = searchId => {
+    return {
+        type: "DELETE_SEARCH_SUCCESS",
+        searchId
+    }
+}
+
+export const deleteSearch = (searchId) => {
+    return dispatch => {
+        dispatch(deleteSearchSuccess(searchId))
+        return fetch(`http://localhost:3001/searches/${searchId}`, {
+            credentials: "include",
+            method: "DELETE",
+            headers: {
+                "Content-type": "application/JSON"
+            }
+        })
+    }
+}
+
+
+
+
 export const getUserSearches = () => {
     return dispatch => {
         return fetch("http://localhost:3001/searches", {

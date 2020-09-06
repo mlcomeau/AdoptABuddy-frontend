@@ -41,6 +41,7 @@ export const createSearch = (search, history) => {
             if (response.error) {
                 alert(response.error)
             } else {
+                console.log(response)
                 dispatch(resetSearchForm())
                 dispatch(addSearch(response))
                 history.push("/")

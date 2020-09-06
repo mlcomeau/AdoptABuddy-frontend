@@ -14,7 +14,6 @@ import { blue } from '@material-ui/core/colors';
 import FavoriteIcon from '@material-ui/icons/Favorite';
 import PetsIcon from '@material-ui/icons/Pets';
 import ExpandMoreIcon from '@material-ui/icons/ExpandMore';
-import MoreVertIcon from '@material-ui/icons/MoreVert';
 import Link from '@material-ui/core/Link';
 
 const style = {
