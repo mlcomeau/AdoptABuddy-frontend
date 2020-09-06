@@ -99,14 +99,14 @@ const Signup = ({ signupForm, updateSignupForm, signup, history }) => {
                   />
                 </Grid>
                 <Grid item xs={12}>
-                  <Typography variant="body1"><label htmlForm="search_radius">Desired Search Radius(mi):</label>
+                  <Typography variant="body1"><label htmlForm="search_radius">Desired Search Radius(mi):</label></Typography>
                   <select className="select" onChange={handleInputChange} value={signupForm.search_radius} name="search_radius" required>
                     <option value="" disabled> - </option>
                     <option value="10">10</option>
                     <option value="25">25</option>
                     <option value="50">50</option>
                     <option value="100">100</option>
-                  </select></Typography>
+                  </select>
                 </Grid>
                 <Grid item xs={12}>
                   <TextField
