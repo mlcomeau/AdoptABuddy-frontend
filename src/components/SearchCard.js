@@ -1,16 +1,12 @@
 import React from 'react';
 import { connect } from 'react-redux';
-import { fetchSearchResults } from '../actions/searchResults.js';
-import { resetSearchResults } from '../actions/searchResults.js';
+// withRouter -> access to history object 
+import { withRouter } from 'react-router-dom';
+import { fetchSearchResults, resetSearchResults } from '../actions/searchResults.js';
 import { deleteSearch } from '../actions/searches.js'
 
 import { makeStyles } from '@material-ui/core/styles';
-import Card from '@material-ui/core/Card';
-import CardActions from '@material-ui/core/CardActions';
-import CardContent from '@material-ui/core/CardContent';
-import Button from '@material-ui/core/Button';
-import Typography from '@material-ui/core/Typography';
-import { withRouter } from 'react-router-dom';
+import { Card, CardActions, CardContent, Button, Typography } from '@material-ui/core/Card';
 
 const useStyles = makeStyles({
   root: {
@@ -40,13 +36,10 @@ const SearchCard = ({search, fetchSearchResults, location, searchRadius, resetSe
         <Typography variant="body2" component="p">
           Animal: {search.animal}
           <br />
-          <br />
           Gender: {search.gender}
           <br />
-          <br />
           Age: {search.age}
-          <br />
-          <br />                    
+          <br />                 
           Size: {search.size}
         </Typography>
       </CardContent>

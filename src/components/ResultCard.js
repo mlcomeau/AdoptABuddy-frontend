@@ -1,26 +1,12 @@
 import React from 'react';
-import { makeStyles } from '@material-ui/core/styles';
+import '../App.css'
+
 import clsx from 'clsx';
-import Card from '@material-ui/core/Card';
-import CardHeader from '@material-ui/core/CardHeader';
-import CardMedia from '@material-ui/core/CardMedia';
-import CardContent from '@material-ui/core/CardContent';
-import CardActions from '@material-ui/core/CardActions';
-import Collapse from '@material-ui/core/Collapse';
-import Avatar from '@material-ui/core/Avatar';
-import IconButton from '@material-ui/core/IconButton';
-import Typography from '@material-ui/core/Typography';
+import { Card, CardHeader, CardMedia, CardContent, CardActions, Collapse, Avatar, IconButton, Typography, Link} from '@material-ui/core';
+import { makeStyles } from '@material-ui/core/styles';
 import { blue } from '@material-ui/core/colors';
-import FavoriteIcon from '@material-ui/icons/Favorite';
 import PetsIcon from '@material-ui/icons/Pets';
 import ExpandMoreIcon from '@material-ui/icons/ExpandMore';
-import Link from '@material-ui/core/Link';
-
-const style = {
-  height: "auto", 
-  width: "auto" 
-}
-
 
 const useStyles = makeStyles((theme) => ({
     root: {
@@ -62,7 +48,7 @@ const ResultCard = ({result}) => {
         />
         <CardMedia>
         <>
-          { result.primary_photo_cropped !== null ? <img src={result.primary_photo_cropped.small} style={style} alt="pet-pic"/> : <img src="https://eatnstreet.com/images/NoImageAvailable.png" style={style} alt="no-pic" /> }
+          { result.primary_photo_cropped !== null ? <img src={result.primary_photo_cropped.small} className="photo" alt="pet-pic"/> : <img src="https://eatnstreet.com/images/NoImageAvailable.png" style={style} alt="no-pic" /> }
         </>
         </CardMedia>
         <CardContent>
@@ -71,9 +57,6 @@ const ResultCard = ({result}) => {
           </Typography>
         </CardContent>
         <CardActions disableSpacing>
-          <IconButton aria-label="add to favorites">
-            <FavoriteIcon />
-          </IconButton>
           <IconButton
             className={clsx(classes.expand, {
               [classes.expandOpen]: expanded,
@@ -99,7 +82,7 @@ const ResultCard = ({result}) => {
               Shots Current? {result.attributes.spayed_neutered === true ? "Yes" : "No"}
             </Typography>
             <CardActions>
-                <Link href={result.url} target="_blank" rel="noopener">Learn more about {result.name}</Link>
+              <Link href={result.url} target="_blank" rel="noopener">Learn more about {result.name}</Link>
             </CardActions>
           </CardContent>
         </Collapse>

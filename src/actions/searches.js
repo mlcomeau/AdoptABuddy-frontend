@@ -25,22 +25,6 @@ export const deleteSearchSuccess = searchId => {
     }
 }
 
-export const deleteSearch = (searchId) => {
-    return dispatch => {
-        dispatch(deleteSearchSuccess(searchId))
-        return fetch(`http://localhost:3001/searches/${searchId}`, {
-            credentials: "include",
-            method: "DELETE",
-            headers: {
-                "Content-type": "application/JSON"
-            }
-        })
-    }
-}
-
-
-
-
 export const getUserSearches = () => {
     return dispatch => {
         return fetch("http://localhost:3001/searches", {
@@ -61,11 +45,25 @@ export const getUserSearches = () => {
 
         })
         .catch(console.log)
+    }        
+}
+
+export const deleteSearch = (searchId) => {
+    return dispatch => {
+        dispatch(deleteSearchSuccess(searchId))
+        return fetch(`http://localhost:3001/searches/${searchId}`, {
+            credentials: "include",
+            method: "DELETE",
+            headers: {
+                "Content-type": "application/JSON"
+            }
+        })
     }
-        
 }
 
 /* 
 -getUserSearch: gets searches belonging to current user from db,
 adds those searches to state.searches (array)
+-deleteSearch: has the search removed from state.searches,
+deletes that search from the db 
 */

@@ -18,3 +18,5 @@ export default (state = initState , action) => {
 
 }
 
+// state.signupForm - user input from signupform 
+

@@ -1,18 +1,11 @@
 import React from 'react';
 import { connect } from 'react-redux';
-//import { Link } from 'react-router-dom';
 import { updateLoginForm } from '../actions/loginForm.js';
 import { login } from '../actions/currentUser.js';
-import Avatar from '@material-ui/core/Avatar';
-import Button from '@material-ui/core/Button';
-import CssBaseline from '@material-ui/core/CssBaseline';
-import TextField from '@material-ui/core/TextField';
-import Link from '@material-ui/core/Link';
-import Grid from '@material-ui/core/Grid';
-import PetsIcon from '@material-ui/icons/Pets';
-import Typography from '@material-ui/core/Typography';
+
+import { Avatar, Button, CssBaseline, TextField, Link, Grid, Typography, Container} from '@material-ui/core';
 import { makeStyles } from '@material-ui/core/styles';
-import Container from '@material-ui/core/Container';
+import PetsIcon from '@material-ui/icons/Pets';
 
 const useStyles = makeStyles((theme) => ({
     paper: {
@@ -26,32 +19,33 @@ const useStyles = makeStyles((theme) => ({
       backgroundColor: theme.palette.secondary.main,
     },
     form: {
-      width: '100%', // Fix IE 11 issue.
+      width: '100%',
       marginTop: theme.spacing(1),
     },
     submit: {
       margin: theme.spacing(3, 0, 2),
     },
-  }));
+}));
 
 const Login = ({ loginForm, updateLoginForm, login }) => {
 
-    const classes = useStyles();
+  const classes = useStyles();
     
-    const handleInputChange = event => {
+  const handleInputChange = event => {
         const { name, value } = event.target
         const updatedForm = {
             ...loginForm,
             [name]: value 
         }
         updateLoginForm(updatedForm)
-    }
-    const handleSubmit = event => {
+  }
+
+  const handleSubmit = event => {
         event.preventDefault()
         login(loginForm)
-    }
+  }
 
-    return (
+  return (
       <Container component="main" maxWidth="xs">
         <CssBaseline />
         <div className={classes.paper} onSubmit={handleSubmit}>
@@ -110,18 +104,13 @@ const Login = ({ loginForm, updateLoginForm, login }) => {
           </form>
         </div>
       </Container>
-    );
-
-
+  );
 }
 
 const mapStateToProps = state => {
     return {
         loginForm: state.loginForm
-    }
-
-    
+    }    
 }
-
 
 export default connect(mapStateToProps, { updateLoginForm, login })(Login)

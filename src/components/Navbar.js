@@ -1,10 +1,8 @@
 import React from 'react';
 import Logout from './Logout.js';
-import AppBar from '@material-ui/core/AppBar';
-import Typography from '@material-ui/core/Typography';
-import Toolbar from '@material-ui/core/Toolbar';
-import { makeStyles } from '@material-ui/core/styles';
 
+import { AppBar, Typography, Toolbar} from '@material-ui/core';
+import { makeStyles } from '@material-ui/core/styles';
 
 const useStyles = makeStyles(() => ({
     box: {
@@ -15,7 +13,7 @@ const useStyles = makeStyles(() => ({
     }
   }));
 
-  const Navbar = () => {
+const Navbar = () => {
     const classes = useStyles();
 
     return (
@@ -28,6 +26,6 @@ const useStyles = makeStyles(() => ({
             </AppBar>
         </div>
     )
-  }
+}
 
-  export default Navbar
+export default Navbar

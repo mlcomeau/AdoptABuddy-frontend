@@ -8,15 +8,13 @@ export const updateSearchForm = (formData) => {
     }
 }
 
-
 export const resetSearchForm = () => {
     return {
         type: "RESET_SEARCH_FORM"
     }
 }
 
-export const createSearch = (search, history) => {
-    
+export const createSearch = (search, history) => {    
     return dispatch => {
         dispatch(resetSearchResults())
         const sendableSearch = {
@@ -55,8 +53,6 @@ export const createSearch = (search, history) => {
 
 /*
 -createSearch: sends form data and user id to backend, 
-backend creates new search record belonging to user,
-backend sends response(search) to frontend,
+backend creates new search record belonging to user then sends it back,
 clear state.searchForm and add new search to state.searches (array of searches belonging to current user)
-**NEXT: want to reroute to "/search_results" which will display animals in PetFinder API matching the search query 
 */

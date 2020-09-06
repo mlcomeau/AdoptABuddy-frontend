@@ -13,3 +13,5 @@ export default (state = initState, action) => {
             return state;
     }
 }
+
+// state.loginForm - uer input from login form 

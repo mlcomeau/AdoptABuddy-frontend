@@ -9,8 +9,8 @@ import storage from 'redux-persist/lib/storage';
 import { PersistGate } from 'redux-persist/integration/react';
 
 import * as serviceWorker from './serviceWorker';
-import './index.css';
 import App from './App';
+
 //import reducers 
 import currentUser from './reducers/currentUser.js';
 import loginForm from './reducers/loginForm.js';

@@ -1,8 +1,7 @@
 import React from 'react';
 import { connect } from 'react-redux';
-import { Typography } from '@material-ui/core';
+import { Typography, Link } from '@material-ui/core';
 import EmojiEmotionsIcon from '@material-ui/icons/EmojiEmotions';
-import Link from '@material-ui/core/Link';
 
 const Banner = ({userName, searchesCount}) => {
     return (

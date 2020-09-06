@@ -13,7 +13,6 @@ const Home = ({ resultsCount }) => {
             <SearchesContainer />        
         </>
     )
-
 }
 
 const mapStateToProps = state => {

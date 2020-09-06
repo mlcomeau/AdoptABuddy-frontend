@@ -8,3 +8,5 @@ export default (state= null, action) => {
             return state;
     }
 }
+
+// state.currentUser - a user if somebody is logged in 

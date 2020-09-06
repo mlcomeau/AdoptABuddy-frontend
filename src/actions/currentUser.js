@@ -1,8 +1,7 @@
 import { resetLoginForm } from './loginForm.js'
 import { resetSignupForm } from './signupForm.js'
-import { getUserSearches } from './searches.js'
+import { getUserSearches, clearSearches } from './searches.js'
 import { resetSearchResults } from './searchResults.js'
-import { clearSearches } from './searches.js'
 
 export const setCurrentUser = user => {
     return {
@@ -107,4 +106,19 @@ export const logout = () => {
         })
     }
 }
+
+/*
+-signup: sends user input from signup form to db which creates user record, 
+the user is sent back which is used to set state.currentUser,
+clears info from state.signupForm and reroutes to root url
+-login: sends user input from login form to db to set session,
+the user sent back is used to set state.currentUser, 
+clears info from state.loginForm,
+doesn't need to reroute because Login and Home component are both at root url and display conditionally based on state.currentUser
+-getCurrentUser: asks the db if there is a session and which user it belongs to, 
+if logged in a user is returned which is used to set state.currentUser,
+gets the searches belonging to that user
+-logout: clears state.searches, state.searchResults, and state.currentUser,
+tells the db to clear the session 
+*/
 

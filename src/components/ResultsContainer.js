@@ -1,6 +1,5 @@
 import React from 'react';
 import { connect } from 'react-redux';
-
 import ResultCard from './ResultCard.js';
 
 import { makeStyles } from '@material-ui/core/styles';

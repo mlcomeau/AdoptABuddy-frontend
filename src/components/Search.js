@@ -4,15 +4,11 @@ import { updateSearchForm, createSearch } from '../actions/searchForm.js';
 import { fetchSearchResults } from '../actions/searchResults.js';
 import '../App.css'
 
-import Avatar from '@material-ui/core/Avatar';
-import Button from '@material-ui/core/Button';
-import CssBaseline from '@material-ui/core/CssBaseline';
+import { Avatar, Button, CssBaseline, Grid, Typography, Container} from '@material-ui/core';
 import ArrowBackIcon from '@material-ui/icons/ArrowBack';
-import Grid from '@material-ui/core/Grid';
 import PetsIcon from '@material-ui/icons/Pets';
-import Typography from '@material-ui/core/Typography';
 import { makeStyles } from '@material-ui/core/styles';
-import Container from '@material-ui/core/Container';
+
 
 const useStyles = makeStyles((theme) => ({
     paper: {
@@ -26,7 +22,7 @@ const useStyles = makeStyles((theme) => ({
       backgroundColor: theme.palette.secondary.main,
     },
     form: {
-      width: '100%', // Fix IE 11 issue.
+      width: '100%',
       marginTop: theme.spacing(3),
     },
     submit: {
@@ -56,7 +52,7 @@ const Search = ({ searchForm, updateSearchForm, userId, history, createSearch, l
     }
 
     return (
-        <div>
+        <>
         <div className="top">
             <Typography variant="h6"><a href="/"><ArrowBackIcon fontSize="small"/>Back to Home</a></Typography>
         </div>
@@ -123,11 +119,8 @@ const Search = ({ searchForm, updateSearchForm, userId, history, createSearch, l
             </form>
           </div>
         </Container>
-        </div>
+        </>
       );
-
-
-
 }
 
 const mapStateToProps = state => {
