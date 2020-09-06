@@ -6,7 +6,6 @@ import { makeStyles } from '@material-ui/core/styles';
 import { Paper, Grid, Box, Typography} from '@material-ui/core';
 import PetsIcon from '@material-ui/icons/Pets';
 
-
 const useStyles = makeStyles((theme) => ({
     root: {
       flexGrow: 1,
@@ -19,6 +18,7 @@ const useStyles = makeStyles((theme) => ({
 }));
 
 const SearchesContainer = ({userSearches}) => {
+
     const classes = useStyles();
     const searchCards = userSearches.length > 0 ? userSearches.map(s => <Grid item key={s.id} xs={4}><SearchCard search={s} key={s.id}/></Grid>) : null 
 

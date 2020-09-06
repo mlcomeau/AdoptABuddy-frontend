@@ -2,6 +2,7 @@ import React from 'react';
 import { connect } from 'react-redux';
 import { updateSignupForm } from '../actions/signupForm.js';
 import { signup } from '../actions/currentUser.js';
+import '../App.css'
 
 import { Avatar, Button, CssBaseline, TextField, Link, Grid, Typography, Container } from '@material-ui/core';
 import PetsIcon from '@material-ui/icons/Pets';
@@ -98,18 +99,14 @@ const Signup = ({ signupForm, updateSignupForm, signup, history }) => {
                   />
                 </Grid>
                 <Grid item xs={12}>
-                  <TextField
-                    type="number"
-                    variant="outlined"
-                    required
-                    fullWidth
-                    id="search_radius"
-                    label="Search Radius"
-                    name="search_radius"
-                    autoComplete="zipcode"
-                    value={signupForm.search_radius}
-                    onChange={handleInputChange}
-                  />
+                  <Typography variant="body1"><label htmlForm="search_radius">Desired Search Radius(mi):</label>
+                  <select className="select" onChange={handleInputChange} value={signupForm.search_radius} name="search_radius" required>
+                    <option value="" disabled> - </option>
+                    <option value="10">10</option>
+                    <option value="25">25</option>
+                    <option value="50">50</option>
+                    <option value="100">100</option>
+                  </select></Typography>
                 </Grid>
                 <Grid item xs={12}>
                   <TextField
