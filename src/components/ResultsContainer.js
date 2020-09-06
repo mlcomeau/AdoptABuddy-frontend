@@ -1,5 +1,7 @@
 import React from 'react';
 import { connect } from 'react-redux';
+import { useEffect } from "react";
+import { useLocation } from "react-router-dom";
 import ResultCard from './ResultCard.js';
 
 import { makeStyles } from '@material-ui/core/styles';
@@ -21,10 +23,16 @@ const useStyles = makeStyles((theme) => ({
   }));
 
   const ResultsContainer = ({searchResults}) => {
-      const classes = useStyles();
-      const resultCards = searchResults.length > 0 ? searchResults.map(r => <Grid item xs={5}><ResultCard result={r}/></Grid>) : null
+    const { pathname } = useLocation();
+    const classes = useStyles();
 
-      return (
+    useEffect(() => {
+        window.scrollTo(0, 0);
+    }, [pathname]);
+    
+    const resultCards = searchResults.length > 0 ? searchResults.map(r => <Grid item xs={5}><ResultCard result={r}/></Grid>) : null
+
+    return (
         <div className={classes.root}>
             <Box m={10} mt={1}>
                 <Grid container spacing={2} justify="center" alignItems="center">
@@ -39,13 +47,13 @@ const useStyles = makeStyles((theme) => ({
                 </Grid>
             </Box>
         </div>          
-      )
-  }
+    )
+}
 
-  const mapStateToProps = state => {
-      return {
-          searchResults: state.searchResults
-      }
-  }
+const mapStateToProps = state => {
+    return {
+        searchResults: state.searchResults
+    }
+}
 
-  export default connect (mapStateToProps)(ResultsContainer)
+export default connect (mapStateToProps)(ResultsContainer)

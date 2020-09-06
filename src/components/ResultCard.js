@@ -44,11 +44,11 @@ const ResultCard = ({result}) => {
               <PetsIcon />
             </Avatar>
           }
-          title={result.name !== null ? result.name : "Unknown"}
+          title={ result ? result.name : "Unknown"}
         />
         <CardMedia>
         <>
-          { result.primary_photo_cropped !== null ? <img src={result.primary_photo_cropped.small} className="photo" alt="pet-pic"/> : <img src="https://eatnstreet.com/images/NoImageAvailable.png" style={style} alt="no-pic" /> }
+          { result ? <img src={result.primary_photo_cropped.small} className="photo" alt="pet-pic"/> : <img src="https://eatnstreet.com/images/NoImageAvailable.png" className="photo" alt="no-pic" /> }
         </>
         </CardMedia>
         <CardContent>

@@ -6,7 +6,7 @@ import { fetchSearchResults, resetSearchResults } from '../actions/searchResults
 import { deleteSearch } from '../actions/searches.js'
 
 import { makeStyles } from '@material-ui/core/styles';
-import { Card, CardActions, CardContent, Button, Typography } from '@material-ui/core/Card';
+import { Card, CardActions, CardContent, Button, Typography } from '@material-ui/core';
 
 const useStyles = makeStyles({
   root: {

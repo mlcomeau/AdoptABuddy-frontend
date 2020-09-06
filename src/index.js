@@ -26,16 +26,16 @@ const composeEnhancer = window.__REDUX_DEVTOOLS_EXTENSION_COMPOSE__ || compose;
 const persistConfig = {
   key: 'root',
   storage,
-  blacklist: ['loginForm', 'signupForm', 'searchForm']
+  whitelist: ['searchResults', 'searches']
 }
 
 const reducer = combineReducers({
   currentUser,
-  loginForm: loginForm,
-  signupForm: signupForm,
-  searchForm: searchForm,
-  searchResults,
-  searches
+  loginForm,
+  signupForm,
+  searchForm,
+  searchResults: searchResults,
+  searches: searches
 })
 
 const persistedReducer = persistReducer(persistConfig, reducer)
@@ -55,7 +55,4 @@ ReactDOM.render(
   document.getElementById('root')
 );
 
-// If you want your app to work offline and load faster, you can change
-// unregister() to register() below. Note this comes with some pitfalls.
-// Learn more about service workers: https://bit.ly/CRA-PWA
 serviceWorker.unregister();
