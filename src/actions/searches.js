@@ -42,7 +42,6 @@ export const getUserSearches = () => {
             else {
                 dispatch(setUserSearches(searches))
             }          
-
         })
         .catch(console.log)
     }        

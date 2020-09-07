@@ -89,7 +89,6 @@ export const getCurrentUser = () => {
                 dispatch(setCurrentUser(user))
                 dispatch(getUserSearches())
             }          
-
         })
         .catch(console.log)
     }

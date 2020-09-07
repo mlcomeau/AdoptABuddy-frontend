@@ -20,7 +20,7 @@ const Navbar = () => {
         <div>
             <AppBar position="relative">
                 <Toolbar>
-                    <Typography className={classes.title} variant="h6">AdoptABuddy</Typography>
+                    <Typography className={classes.title} variant="h6">AdoptABuddy - Find Adoptable Animals Now!</Typography>
                     <Logout />      
                 </Toolbar>
             </AppBar>
