@@ -47,7 +47,7 @@ export const getUserSearches = () => {
     }        
 }
 
-export const deleteSearch = (searchId) => {
+export const deleteSearch = searchId => {
     return dispatch => {
         dispatch(deleteSearchSuccess(searchId))
         return fetch(`http://localhost:3001/searches/${searchId}`, {

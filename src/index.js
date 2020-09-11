@@ -19,8 +19,6 @@ import searchForm from './reducers/searchForm.js';
 import searchResults from './reducers/searchResults.js';
 import signupForm from './reducers/signupForm.js';
 
-
-
 const composeEnhancer = window.__REDUX_DEVTOOLS_EXTENSION_COMPOSE__ || compose;
 
 const persistConfig = {

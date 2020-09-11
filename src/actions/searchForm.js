@@ -1,7 +1,7 @@
 import { addSearch } from './searches';
 import { resetSearchResults } from './searchResults';
 
-export const updateSearchForm = (formData) => {
+export const updateSearchForm = formData => {
     return {
         type: "UPDATE_SEARCH_FORM",
         formData
