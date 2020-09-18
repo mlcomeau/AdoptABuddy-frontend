@@ -62,6 +62,7 @@ export const login = creds => {
             }
             else {
                 dispatch(setCurrentUser(user))
+                dispatch(getUserSearches())
                 dispatch(resetLoginForm())
             }          
 
@@ -87,7 +88,6 @@ export const getCurrentUser = () => {
             }
             else {
                 dispatch(setCurrentUser(user))
-                dispatch(getUserSearches())
             }          
         })
         .catch(console.log)

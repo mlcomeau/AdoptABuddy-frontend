@@ -10,7 +10,7 @@ const Home = ({ resultsCount }) => {
         <>
             <Banner />
             { resultsCount > 0 ? <ResultsContainer /> : null }
-            <SearchesContainer />        
+            <SearchesContainer />         
         </>
     )
 }

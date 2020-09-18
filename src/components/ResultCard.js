@@ -48,7 +48,7 @@ const ResultCard = ({result}) => {
         />
         <CardMedia>
         <>
-          { result ? <img src={result.primary_photo_cropped.small} className="photo" alt="pet-pic"/> : <img src="https://eatnstreet.com/images/NoImageAvailable.png" className="photo" alt="no-pic" /> }
+          { result.primary_photo_cropped ? <img src={result.primary_photo_cropped.small} className="photo" alt="pet-pic"/> : <img src="https://eatnstreet.com/images/NoImageAvailable.png" className="photo" alt="no-pic" /> }
         </>
         </CardMedia>
         <CardContent>
