@@ -33,3 +33,7 @@ input[type=submit]:only-child {
   background-color: "EFEFEF";
 }
 
+.MuiCardHeader-title {
+  font-size: large
+}
+

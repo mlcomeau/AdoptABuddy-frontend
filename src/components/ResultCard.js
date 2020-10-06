@@ -9,9 +9,6 @@ import PetsIcon from '@material-ui/icons/Pets';
 import ExpandMoreIcon from '@material-ui/icons/ExpandMore';
 
 const useStyles = makeStyles((theme) => ({
-    root: {
-      maxWidth: 345,
-    },
     expand: {
       transform: 'rotate(0deg)',
       marginLeft: 'auto',
@@ -37,14 +34,15 @@ const ResultCard = ({result}) => {
 
   
     return (
-      <Card className={classes.root}>
+      <Card>
         <CardHeader
           avatar={
             <Avatar aria-label="pet" className={classes.avatar}>
               <PetsIcon />
             </Avatar>
           }
-          title={ result ? result.name : "Unknown"}
+          titleTypographyProps={{variant:'h6' }}
+          title={result.name}
         />
         <CardMedia>
         <>

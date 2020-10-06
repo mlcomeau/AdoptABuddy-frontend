@@ -1,8 +1,6 @@
 import React from 'react';
 import SearchesContainer from './SearchesContainer.js';
 import Search from './Search.js';
-//import ResultsContainer from './ResultsContainer.js';
-//import Banner from './Banner.js';
 
 import Grid from '@material-ui/core/Grid';
 

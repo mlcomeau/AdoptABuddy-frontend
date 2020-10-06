@@ -25,49 +25,13 @@ const useStyles = makeStyles((theme) => ({
 const ResultsContainer = ({searchResults}) => {
     const { pathname } = useLocation();
     const classes = useStyles();
-   // const [state, setState] = useState();
 
     useEffect(() => {
         window.scrollTo(0, 0);
     }, [pathname]);
     
-    const resultCards = searchResults.length > 0 ? searchResults.map(r => <Grid item xs={5}><ResultCard result={r}/></Grid>) : null
+    const resultCards = searchResults.length > 0 ? searchResults.map(r => <Grid item xs={4}><ResultCard result={r}/></Grid>) : null
 
-    // const sortResults = event => {
-    //     if (event.target.value === "name") {
-    //         const sortedResults = searchResults.sort(function(a, b) {
-    //             var nameA = a.name.toUpperCase(); // ignore upper and lowercase
-    //             var nameB = b.name.toUpperCase(); // ignore upper and lowercase
-    //             if (nameA < nameB) {
-    //             return -1;
-    //             }
-    //             if (nameA > nameB) {
-    //             return 1;
-    //             }
-            
-    //             // names must be equal
-    //             return 0;
-    //         });
-    //         setState( {sortedResults} )
-    //     }
-    //     if (event.target.value === "breed") {
-    //         const sortedResults = searchResults.sort(function(a, b) {
-    //             var nameA = a.breeds.primary.toUpperCase(); // ignore upper and lowercase
-    //             var nameB = b.breeds.primary.toUpperCase(); // ignore upper and lowercase
-    //             if (nameA < nameB) {
-    //               return -1;
-    //             }
-    //             if (nameA > nameB) {
-    //               return 1;
-    //             }
-              
-    //             // names must be equal
-    //             return 0;
-    //           });
-    //         setState({sortedResults})
-    //     }
-        
-    // }
 
     return (
         <div className={classes.root}>
@@ -76,16 +40,13 @@ const ResultsContainer = ({searchResults}) => {
                     <Grid item xs={12}>
                         <Paper className={classes.paper}>      
                             <Typography variant="h4">
-                                <PetsIcon color="primary"/> Search Results <PetsIcon color="primary"/>
-                                {/* <select className="sort" onChange={sortResults}>
-                                    <option diabled> Sort Results </option>
-                                    <option value="name">Sort by Name</option>
-                                    <option value="breed">Sort by Breed</option>
-                                </select><br/> */}
+                                <PetsIcon color="primary"/> ||| <u>Search Results</u> ||| <PetsIcon color="primary"/>
                             </Typography>   
                         </Paper>
                     </Grid>
-                    {resultCards}  
+
+                    {resultCards} 
+
                 </Grid>
             </Box>
         </div>          
