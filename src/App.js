@@ -8,7 +8,7 @@ import { getCurrentUser } from './actions/currentUser.js'
 import Login from './components/Login.js';
 import Signup from './components/Signup.js';
 import Home from './components/Home.js';
-import Search from './components/Search.js';
+import ResultsContainer from './components/ResultsContainer.js';
 import Navbar from './components/Navbar.js';
 
 import { Route, Switch, withRouter } from 'react-router-dom';
@@ -27,8 +27,7 @@ class App extends React.Component {
       <Switch>
         <Route exact path="/" render={(props) => loggedIn ? <Home {...props}/> : <Login {...props}/>}/>
         <Route exact path="/signup" render={({history}) => <Signup history={ history }/>}/>
-        <Route exact path="/login" component={Login}/>
-        <Route exact path="/search" component={Search}/>
+        <Route exact path="/results" component={ResultsContainer}/>
       </Switch>
       </div>
     )
