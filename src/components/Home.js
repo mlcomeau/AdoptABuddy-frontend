@@ -1,24 +1,20 @@
 import React from 'react';
-import { connect } from 'react-redux';
 import SearchesContainer from './SearchesContainer.js';
-import ResultsContainer from './ResultsContainer.js';
-import Banner from './Banner.js';
+import Search from './Search.js';
+//import ResultsContainer from './ResultsContainer.js';
+//import Banner from './Banner.js';
 
-const Home = ({ resultsCount }) => {
+import Grid from '@material-ui/core/Grid';
+
+const Home = () => {
 
     return (
-        <>
-            <Banner />
-            { resultsCount > 0 ? <ResultsContainer /> : null }
-            <SearchesContainer />         
-        </>
+        <Grid container spacing={3}>
+            <Grid item xs={6}><Search /></Grid>
+            <Grid item xs={6}><SearchesContainer /></Grid>
+        </Grid>
     )
 }
 
-const mapStateToProps = state => {
-    return {
-        resultsCount: state.searchResults.length
-    }
-}
 
-export default connect (mapStateToProps)(Home)
+export default Home

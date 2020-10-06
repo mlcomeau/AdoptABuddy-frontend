@@ -1,41 +1,29 @@
 import React from 'react';
 import { connect } from 'react-redux';
-import SearchCard from './SearchCard'
+import SearchCard from './SearchCard';
 
+import Typography from '@material-ui/core/Typography';
 import { makeStyles } from '@material-ui/core/styles';
-import { Paper, Grid, Box, Typography} from '@material-ui/core';
-import PetsIcon from '@material-ui/icons/Pets';
 
 const useStyles = makeStyles((theme) => ({
-    root: {
-      flexGrow: 1,
-    },
     paper: {
-      padding: theme.spacing(2),
-      textAlign: 'center',
-      color: theme.palette.text.secondary,
-    },
-}));
+      marginTop: theme.spacing(3),
+      display: 'flex',
+      flexDirection: 'column',
+      alignItems: 'left',
+    }
+  }));
 
 const SearchesContainer = ({userSearches}) => {
 
     const classes = useStyles();
-    const searchCards = userSearches.length > 0 ? userSearches.map(s => <Grid item key={s.id} xs={4}><SearchCard search={s} key={s.id}/></Grid>) : null 
+
+    const searchCards = userSearches.length > 0 ? userSearches.map(s => <SearchCard search={s} key={s.id}/>) : null 
 
     return (
-        <div className={classes.root}>
-            <Box m={10}>
-                <Grid container spacing={4} justify="center">
-                    <Grid item xs={12}>
-                        <Paper className={classes.paper}>      
-                            <Typography variant="h4">
-                                <PetsIcon color="primary"/> My Previous Searches <PetsIcon color="primary"/>
-                            </Typography>   
-                        </Paper>
-                    </Grid>
-                    {searchCards}  
-                </Grid>
-            </Box>
+        <div className={classes.paper}>
+        <Typography variant="h4">Previous Searches</Typography>
+        {searchCards}  
         </div>
     );
 }

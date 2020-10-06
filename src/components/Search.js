@@ -5,14 +5,14 @@ import { fetchSearchResults } from '../actions/searchResults.js';
 import '../App.css'
 
 import { Avatar, Button, CssBaseline, Grid, Typography, Container} from '@material-ui/core';
-import ArrowBackIcon from '@material-ui/icons/ArrowBack';
+//import ArrowBackIcon from '@material-ui/icons/ArrowBack';
 import PetsIcon from '@material-ui/icons/Pets';
 import { makeStyles } from '@material-ui/core/styles';
 
 
 const useStyles = makeStyles((theme) => ({
     paper: {
-      marginTop: theme.spacing(8),
+      marginTop: theme.spacing(1),
       display: 'flex',
       flexDirection: 'column',
       alignItems: 'center',
@@ -23,7 +23,7 @@ const useStyles = makeStyles((theme) => ({
     },
     form: {
       width: '100%',
-      marginTop: theme.spacing(3),
+      marginTop: theme.spacing(2),
     },
     submit: {
       margin: theme.spacing(3, 0, 2),
@@ -45,17 +45,15 @@ const Search = ({ searchForm, updateSearchForm, userId, history, createSearch, l
     const handleSubmit = event => {
 
         event.preventDefault()
-
         createSearch({...searchForm, userId}, history)
-
         fetchSearchResults({...searchForm, location, searchRadius}, history)      
     }
 
     return (
         <>
-        <div className="top">
+        {/* <div className="top">
             <Typography variant="h6"><a href="/"><ArrowBackIcon fontSize="small"/>Back to Home</a></Typography>
-        </div>
+        </div> */}
         <Container component="main" maxWidth="xs">
           <CssBaseline />
           <div className={classes.paper}>
@@ -63,7 +61,7 @@ const Search = ({ searchForm, updateSearchForm, userId, history, createSearch, l
               <PetsIcon />
             </Avatar>
             <Typography component="h1" variant="h5">
-              Start Searching Now!
+              Find Animals
             </Typography>
             <form className={classes.form} onSubmit={handleSubmit}>
               <Grid container spacing={2}>

@@ -4,14 +4,12 @@ import Logout from './Logout.js';
 import { AppBar, Typography, Toolbar} from '@material-ui/core';
 import { makeStyles } from '@material-ui/core/styles';
 
-const useStyles = makeStyles(() => ({
-    box: {
-        textAlign: 'center',
-    },
+const useStyles = makeStyles((theme) => ({
     title: {
-        flexGrow: 1,
-    }
+      flexGrow: 1,
+    },
   }));
+
 
 const Navbar = () => {
     const classes = useStyles();
