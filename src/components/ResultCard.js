@@ -51,18 +51,17 @@ const ResultCard = ({result}) => {
         </CardMedia>
         <CardContent>
           <Typography variant="body2" color="textSecondary" component="p">
-            {result.age} - {result.gender} -{result.small} - {result.breeds.primary !== null ? result.breeds.primary : "Unknown"}
+            {result.age} | {result.gender} | {result.size} | {result.breeds.primary !== null ? result.breeds.primary : "Unknown"}
           </Typography>
         </CardContent>
         <CardActions disableSpacing>
           <IconButton
-            className={clsx(classes.expand, {
-              [classes.expandOpen]: expanded,
-            })}
-            onClick={handleExpandClick}
-            aria-expanded={expanded}
-            aria-label="show more"
-          >
+          className={clsx(classes.expand, {
+            [classes.expandOpen]: expanded,
+          })}
+          onClick={handleExpandClick}
+          aria-expanded={expanded}
+          aria-label="show more">
             <ExpandMoreIcon />
           </IconButton>
         </CardActions>

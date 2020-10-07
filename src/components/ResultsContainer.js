@@ -30,8 +30,9 @@ const ResultsContainer = ({searchResults}) => {
         window.scrollTo(0, 0);
     }, [pathname]);
     
-    const resultCards = searchResults.length > 0 ? searchResults.map(r => <Grid item xs={4}><ResultCard result={r}/></Grid>) : null
-
+    const resultCards = searchResults.filter(function (r) {
+        return r !== null 
+    }).map(r => <Grid item xs={4}><ResultCard result={r}/></Grid>)
 
     return (
         <div className={classes.root}>

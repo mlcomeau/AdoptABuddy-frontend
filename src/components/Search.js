@@ -1,11 +1,11 @@
 import React from 'react';
 import { connect } from 'react-redux';
+import { withRouter } from 'react-router-dom';
 import { updateSearchForm, createSearch } from '../actions/searchForm.js';
 import { fetchSearchResults } from '../actions/searchResults.js';
 import '../App.css'
 
 import { Avatar, Button, CssBaseline, Grid, Typography, Container} from '@material-ui/core';
-//import ArrowBackIcon from '@material-ui/icons/ArrowBack';
 import PetsIcon from '@material-ui/icons/Pets';
 import { makeStyles } from '@material-ui/core/styles';
 
@@ -133,4 +133,4 @@ const mapStateToProps = state => {
     }
 }
 
-export default connect (mapStateToProps, { updateSearchForm, createSearch, fetchSearchResults })(Search)
+export default withRouter(connect(mapStateToProps, { updateSearchForm, createSearch, fetchSearchResults })(Search))

@@ -1,5 +1,5 @@
 import { addSearch } from './searches';
-import { resetSearchResults } from './searchResults';
+import { resetSearchResults, fetchSearchResults } from './searchResults';
 
 export const updateSearchForm = formData => {
     return {
@@ -41,7 +41,7 @@ export const createSearch = (search, history) => {
             } else {
                 dispatch(resetSearchForm())
                 dispatch(addSearch(response))
-                history.push("/")
+                dispatch(fetchSearchResults(response, history))
             }
         })
         .catch(console.log)
