@@ -32,7 +32,8 @@ const ResultsContainer = ({searchResults}) => {
     
     const resultCards = searchResults.filter(function (r) {
         return r !== null 
-    }).map(r => <Grid item xs={4}><ResultCard result={r}/></Grid>)
+    }).map(r => <Grid item xs={4}><ResultCard result={r} key={r.id}/></Grid>)
+
 
     return (
         <div className={classes.root}>

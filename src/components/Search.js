@@ -45,15 +45,12 @@ const Search = ({ searchForm, updateSearchForm, userId, history, createSearch, l
     const handleSubmit = event => {
 
         event.preventDefault()
-        createSearch({...searchForm, userId}, history)
+        createSearch({...searchForm, userId})
         fetchSearchResults({...searchForm, location, searchRadius}, history)      
     }
 
     return (
         <>
-        {/* <div className="top">
-            <Typography variant="h6"><a href="/"><ArrowBackIcon fontSize="small"/>Back to Home</a></Typography>
-        </div> */}
         <Container component="main" maxWidth="xs">
           <CssBaseline />
           <div className={classes.paper}>
