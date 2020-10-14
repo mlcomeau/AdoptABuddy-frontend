@@ -27,7 +27,7 @@ export const deleteSearchSuccess = searchId => {
 
 export const getUserSearches = () => {
     return dispatch => {
-        return fetch("http://localhost:3001/searches", {
+        return fetch(`${process.env.REACT_APP_ROOT_URL}searches`, {
             credentials: "include",
             method: "GET",
             headers: {
@@ -50,7 +50,7 @@ export const getUserSearches = () => {
 export const deleteSearch = searchId => {
     return dispatch => {
         dispatch(deleteSearchSuccess(searchId))
-        return fetch(`http://localhost:3001/searches/${searchId}`, {
+        return fetch(`${process.env.REACT_APP_ROOT_URL}searches/${searchId}`, {
             credentials: "include",
             method: "DELETE",
             headers: {

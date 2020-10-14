@@ -26,7 +26,7 @@ export const createSearch = (search) => {
                 user_id: search.userId
             }
         }
-        return fetch("http://localhost:3001/searches", {
+        return fetch(`${process.env.REACT_APP_ROOT_URL}searches`, {
             credentials: "include",
             method: "POST",
             headers: {

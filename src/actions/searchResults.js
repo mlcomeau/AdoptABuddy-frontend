@@ -13,7 +13,7 @@ export const resetSearchResults = () => {
 
 export const fetchSearchResults = (searchInfo, history) => {
     return dispatch => {
-        return fetch("http://localhost:3001/search_results", {
+        return fetch(`${process.env.REACT_APP_ROOT_URL}search_results`, {
             credentials: "include",
             method: "POST",
             headers: {

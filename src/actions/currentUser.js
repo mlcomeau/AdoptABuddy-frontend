@@ -21,7 +21,7 @@ export const signup = (creds, history) => {
         const userInfo = {
             user: creds 
         }
-        return fetch("http://localhost:3001/signup", {
+        return fetch(`${process.env.REACT_APP_ROOT_URL}signup`, {
             credentials: "include",
             method: "POST",
             headers: {
@@ -47,7 +47,7 @@ export const signup = (creds, history) => {
 
 export const login = creds => {
     return dispatch => {
-        return fetch("http://localhost:3001/login", {
+        return fetch(`${process.env.REACT_APP_ROOT_URL}login`, {
             credentials: "include",
             method: "POST",
             headers: {
@@ -74,7 +74,7 @@ export const login = creds => {
 
 export const getCurrentUser = () => {
     return dispatch => {
-        return fetch("http://localhost:3001/get_current_user", {
+        return fetch(`${process.env.REACT_APP_ROOT_URL}get_current_user`, {
             credentials: "include",
             method: "GET",
             headers: {
@@ -99,7 +99,7 @@ export const logout = () => {
         dispatch(clearSearches())
         dispatch(resetSearchResults())
         dispatch(clearCurrentUser())
-        return fetch("http://localhost:3001/logout", {
+        return fetch(`${process.env.REACT_APP_ROOT_URL}logout`, {
             credentials: "include",
             method: "DELETE"
         })
