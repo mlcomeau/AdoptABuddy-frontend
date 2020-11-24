@@ -22,8 +22,9 @@ const SearchesContainer = ({userSearches}) => {
 
     return (
         <div className={classes.paper}>
-        <Typography variant="h4">Previous Searches</Typography>
-        {searchCards}  
+            { userSearches.length > 0 ? <Typography variant="h4">Previous Searches</Typography> : <Typography variant="h4">Welcome! Start searching for adoptable animals now...</Typography>}
+            
+            {searchCards}  
         </div>
     );
 }
